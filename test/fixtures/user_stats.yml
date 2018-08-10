@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  success: 1
+  total: 1
+  references: 
+
+two:
+  success: 1
+  total: 1
+  references: 
