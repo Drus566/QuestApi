@@ -27,7 +27,9 @@ ActiveRecord::Schema.define(version: 2018_07_31_083635) do
   create_table "quests", force: :cascade do |t|
     t.text "question"
     t.string "answer"
-    t.text "options"
+    t.string "first"
+    t.string "second"
+    t.string "third"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

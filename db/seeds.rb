@@ -5,7 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Quest.delete_all
 
 10.times do 
-    quest = Quest.create({ question: Faker::Lorem.sentence, answer: "true", options: "first, second, third" })
+    quest = Quest.create({ question: Faker::Lorem.sentence, answer: "True answer", first: "First answer", second: "Second answer", third: "Third answer" })
 end
+
+puts "Quest was seeded"

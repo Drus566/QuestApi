@@ -3,7 +3,9 @@ class CreateQuests < ActiveRecord::Migration[5.2]
     create_table :quests do |t|
       t.text :question
       t.string :answer
-      t.text :options
+      t.string :first
+      t.string :second
+      t.string :third
 
       t.timestamps
     end
