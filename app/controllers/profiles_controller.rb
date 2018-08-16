@@ -1,4 +1,6 @@
-class Api::ProfilesController < ApplicationController
+class ProfilesController < ApplicationController
+    before_action :authenticate_user
+    
     def index
         @profiles = Profile.all
         render json: @profiles

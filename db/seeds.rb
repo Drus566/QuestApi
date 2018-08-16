@@ -12,3 +12,40 @@ Quest.delete_all
 end
 
 puts "Quest was seeded"
+
+User.delete_all
+
+user = User.create({
+    name: "lupa",
+    email: "lupa@mail.ru",
+    password_digest: BCrypt::Password.create("123456")
+})
+
+user = User.create({
+    name: "pupa",
+    email: "pupa@mail.ru",
+    password_digest: BCrypt::Password.create("123456"),
+    ready: true
+})
+
+user = User.create({
+    name: "lion",
+    email: "lion@mail.com",
+    password_digest: BCrypt::Password.create("123456"),
+    ready: true
+})
+
+user = User.create({
+    name: "abbadon",
+    email: "abbadon@mail.com",
+    password_digest: BCrypt::Password.create("123456"),
+    ready: true
+})
+
+user = User.create({
+    name: "crystal_maiden",
+    email: "crystalmaiden@mail.ru",
+    password_digest: BCrypt::Password.create("123456")
+})
+
+puts "Users was seeded"

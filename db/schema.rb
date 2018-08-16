@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_31_083635) do
+ActiveRecord::Schema.define(version: 2018_08_14_120347) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,19 @@ ActiveRecord::Schema.define(version: 2018_07_31_083635) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "rooms", force: :cascade do |t|
+    t.bigint "first_user_id"
+    t.bigint "second_user_id"
+    t.string "first_round"
+    t.string "second_round"
+    t.string "third_round"
+    t.boolean "completed", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["first_user_id"], name: "index_rooms_on_first_user_id"
+    t.index ["second_user_id"], name: "index_rooms_on_second_user_id"
+  end
+
   create_table "stats", force: :cascade do |t|
     t.integer "success"
     t.integer "total"
@@ -45,14 +58,10 @@ ActiveRecord::Schema.define(version: 2018_07_31_083635) do
     t.string "name"
     t.string "email"
     t.string "password_digest"
-    t.string "activation_digest"
-    t.boolean "activated", default: false
-    t.datetime "activated_at"
-    t.string "remember_digest"
-    t.string "reset_digest"
-    t.datetime "reset_sent_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "ready", default: false
+    t.index ["email"], name: "index_users_on_email"
   end
 
   add_foreign_key "profiles", "users"
