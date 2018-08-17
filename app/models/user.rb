@@ -13,13 +13,7 @@ class User < ApplicationRecord
     has_secure_password
     validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
-    def to_token_payload
-        {
-            sub: id,
-            email: email,
-            name: name,
-        }
-    end
+    
 
     private 
 
