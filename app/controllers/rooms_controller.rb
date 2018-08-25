@@ -11,7 +11,7 @@ class RoomsController < ApplicationController
         first_player = current_user
         if second_player = User.where(ready: true).first
             second_player.update(:ready => 'false')
-            render json: second_player.id, status: :found
+            render json: second_player.id, status: :ok
         else
             first_player.update(:ready => 'true')
             render status: :not_found
