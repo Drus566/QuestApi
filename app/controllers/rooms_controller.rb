@@ -1,10 +1,15 @@
 class RoomsController < ApplicationController
     before_action :authenticate_user
-    before_action :set_room, only: [ :update, :destroy ]
+    before_action :set_room, only: [ :update, :destroy, :show ]
 
     def index
         rooms = Room.all
         render json: rooms
+    end
+
+    def show
+        @room = Room.find(params[:id])
+        render json: @room
     end
 
     def find_player
